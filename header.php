@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+
+
+
   <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
     <?php
       $result = "";
@@ -197,16 +200,34 @@ var _returnValues;
 <div class="main_form">
     <div class="sub">
       <div class="title_box">
-        <div class="title">MAP</div>
+        <div class="title"><?php bloginfo("name") ?></div>
         <button type="button" class="menu-btn js-btn">
           <span class="btn-line"></span>
         </button>
       </div>
+      
     <ul>
-      <li><a href="<?php bloginfo('url');?>/com/" data-hover="About Us">TOP</a></li>
-      <li><a href="<?php bloginfo('url');?>/" data-hover="About Us">このサイトについて</a></li>
-      <li><a href="<?php bloginfo('url');?>/" data-hover="About Us">あらかじめ削除申請</a></li>
-      <li><a href="<?php bloginfo('url');?>/" data-hover="About Us">よくある質問</a></li>
+      <?php 
+        $args = array(
+        'menu'            => '',
+        'menu_class'      => 'menu', // メニューを構成するul要素につけるCSSクラス名
+        'menu_id'         => '{メニューのスラッグ}-{連番}', // メニュを構成するul要素につけるCSSI ID名
+        'container'       => 'div', // ulを囲う要素を指定。div or nav。なしの場合には false
+        'container_class' => 'menu-{メニューのスラッグ}-container', // コンテナに適用するCSSクラス名
+        'container_id'    => '', // コンテナに適用するCSS ID名
+        'fallback_cb'     => 'wp_page_menu', // メニューが存在しない場合にコールバック関数を呼び出す
+        'before'          => '', // メニューアイテムのリンクの前に挿入するテキスト
+        'after'           => '', // メニューアイテムのリンクの後に挿入するテキスト
+        'link_before'     => '', // リンク内の前に挿入するテキスト
+        'link_after'      => '', // リンク内の後に挿入するテキスト
+        'echo'            => true, // メニューをHTML出力する（true）かPHPの値で返す（false）か
+        'depth'           => 0, // 何階層まで表示するか。0は全階層、1は親メニューまで、2は子メニューまで
+        'walker'          => '', // カスタムウォーカーを使用する場合
+        'theme_location'  => '', // メニュー位置を指定
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>', // メニューアイテムのラップの仕方。%1$sには'menu_id'のパラメータ展開、%2$sには'menu_class'のパラメータ展開、%3$sはリストの項目が値として展開
+    );
+    wp_nav_menu($args);
+   ?>
     </ul>
   </div>
   <div class="map_form" id="map"> 
