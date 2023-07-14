@@ -1,0 +1,150 @@
+#comments-thread .comment-id,
+#comments-thread .form-allowed-tags {
+  display: none;
+}
+
+#comments-thread .comment-author {
+  font-weight: bold;
+}
+
+#comments-thread img.avatar {
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+#commentform label {
+  display: block;
+}
+
+#commentform input {
+  margin-bottom: 0px;
+}
+
+#commentform input,
+#commentform textarea {
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+style.css .my-comments {
+  background-color: #aaaaaa;
+  padding: 10px;
+}
+
+.my-comments ul,
+.my-comments li {
+  list-style: none;
+}
+
+.my-comments li {
+  margin: 10px 0px 10px 0px;
+}
+
+.comment-body {
+  padding: 10px;
+  background-color: #fffafa;
+}
+
+.comment-author {
+  font-size: 1.2em;
+}
+
+.comment-meta a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.reply {
+  text-align: right;
+}
+style.css .my-comments {
+  background-color: #aaaaaa;
+  padding: 10px;
+}
+
+.my-comments ul,
+.my-comments li {
+  list-style: none;
+}
+
+.my-comments li {
+  margin: 10px 0px 10px 0px;
+}
+
+.comment-body {
+  padding: 10px;
+  background-color: #fffafa;
+}
+
+.comment-author {
+  font-size: 1.2em;
+}
+
+.comment-meta a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.reply {
+  text-align: right;
+}
+
+.fas_sns_icontopcolor {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-bottom: 3px solid rgb(225, 225, 225);
+}
+.fas_sns_icontopcolor li {
+  list-style: none;
+  width: calc(100% / 4);
+  text-align: center;
+  text-align: center;
+  justify-content: center;
+}
+.fas_sns_icontopcolor li a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.5em;
+  color: #333;
+  text-align: center;
+  justify-content: center;
+}
+.fas_sns_icontopcolor li a i {
+  display: block;
+  font-size: 3em;
+  margin-bottom: 2px;
+  text-align: center;
+  justify-content: center;
+  background-image: url();
+}
+
+.logo-abema {
+  width: 35px;
+  border-radius: 8px;
+  background-color: rgb(42, 39, 42);
+  color: white;
+}
+
+.logo-youtube {
+  display: block;
+  width: 35px;
+  border-radius: 5px;
+  color: white;
+}
+
+.logo-hatena {
+  display: block;
+  width: 35px;
+  color: white;
+}
+
+.logo-instagram {
+  display: block;
+  width: 35px;
+  justify-content: center;
+}

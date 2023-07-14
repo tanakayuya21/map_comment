@@ -1,0 +1,134 @@
+.menu-list {
+  width: 100%;
+  height: 100%;
+  /* メニューテキスト位置をリスト内中心に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  border-bottom: solid #828282 1px;
+
+  i {
+    color: #efefef;
+    margin-left: 10px;
+    list-style: none;
+  }
+  a {
+    color: #efefef;
+    text-decoration-line: none;
+  }
+}
+
+.menu-head {
+  background-color: #000000;
+  color: #333;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  i {
+    color: #c0ccca;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+}
+
+// .menu {
+//   z-index: 1;
+//   width: 100%;
+//   height: 100vh;
+//   margin-left: auto;
+//   /* メニューを縦に */
+//   display: flex;
+//   flex-direction: column;
+//   color: #efefef;
+//   background-color: rgba(58, 53, 30, 0.7);
+//   transition: 0.3s;
+//   padding-bottom: 100px;
+//   padding-left: 0;
+// }
+
+// .menu {
+//   /* メニューの位置マイナス指定で画面外に */
+//   position: fixed;
+//   right: -70%;
+//   width: 70%;
+//   height: 100%;
+//   /* メニューを縦に */
+//   display: flex;
+//   flex-direction: column;
+//   color: #efefef;
+//   background-color: rgba(23, 21, 10, 0.7);
+//   transition: 0.3s;
+// }
+
+.menu-btn {
+  /* ボタンの大きさ  */
+  width: 30px;
+  height: 30px;
+  /* 最前面に */
+  z-index: 10;
+  // background-color: #e7e2d8; /* わかりやすいように */
+}
+
+.btn-line {
+  display: block;
+  position: relative; /* バーガー線の位置基準として設定 */
+  width: 100%; /* 線の長さと高さ */
+  height: 2px;
+  background-color: #333; /* バーガー線の色 */
+  transition: 0.2s;
+}
+
+.btn-line::before,
+.btn-line::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  transition: 0.5s;
+}
+.btn-line::before {
+  /* 上の線の位置 */
+  transform: translateY(-16px);
+}
+.btn-line::after {
+  /* 下の線の位置 */
+  transform: translateY(16px);
+}
+
+.menu.open {
+  right: 0;
+}
+
+/***** メニューオープン時 *****/
+.btn-line.open {
+  background-color: transparent;
+  /* 真ん中の線を透明に */
+}
+
+.btn-line.open::before,
+.btn-line.open::after {
+  content: "";
+  // background-color: #efefef;
+  /* 上下の線の色を変える */
+  transition: 0.3s;
+}
+.menu-btn.open {
+  background-color: transparent;
+}
+.btn-line.open::before {
+  transform: rotate(45deg); /* 上の線を傾ける */
+}
+.btn-line.open::after {
+  transform: rotate(-45deg); /* 下の線を傾ける */
+}
+
+@media screen and (min-width: 768px) {
+  /* ハンバーガーボタン */
+  .menu-btn {
+    display: none; /*768px以上では使用しない */
+  }
+}
