@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,8 +18,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
-
-
 
   <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
     <?php
@@ -146,6 +143,7 @@
           });
           layer.on('click', function(e) {
             // $('.sub').toggleClass('open');
+            //  $('.menu, .btn-line, .menu-btn').toggleClass('open'); 
             location.href = features.url;
           });
         }
@@ -205,15 +203,14 @@ var _returnValues;
           <span class="btn-line"></span>
         </button>
       </div>
-      
     <ul>
-      <?php 
+      <?php
         $args = array(
-        'menu'            => '',
-        'menu_class'      => 'menu', // メニューを構成するul要素につけるCSSクラス名
-        'menu_id'         => '{メニューのスラッグ}-{連番}', // メニュを構成するul要素につけるCSSI ID名
+        // 'menu'            => '',
+        // 'menu_class'      => 'menu', // メニューを構成するul要素につけるCSSクラス名
+        // 'menu_id'         => '{メニューのスラッグ}-{連番}', // メニュを構成するul要素につけるCSSI ID名
         'container'       => 'div', // ulを囲う要素を指定。div or nav。なしの場合には false
-        'container_class' => 'menu-{メニューのスラッグ}-container', // コンテナに適用するCSSクラス名
+        // 'container_class' => 'menu-{メニューのスラッグ}-container', // コンテナに適用するCSSクラス名
         'container_id'    => '', // コンテナに適用するCSS ID名
         'fallback_cb'     => 'wp_page_menu', // メニューが存在しない場合にコールバック関数を呼び出す
         'before'          => '', // メニューアイテムのリンクの前に挿入するテキスト

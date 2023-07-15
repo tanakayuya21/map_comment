@@ -11,7 +11,7 @@ $title_encode = urlencode( get_the_title() );
 	$sql = "SELECT *   FROM $wpdb->posts WHERE ID = $ID";
 	$item = $wpdb->get_results($wpdb->prepare($sql));
 	?>
-		<?php get_header();?>	
+<?php get_header();?>	
 		<div class="com_form" id="contents" >
 		<div class="menu" id="main">
 		<?php if (have_posts()): ?>
@@ -39,8 +39,38 @@ $title_encode = urlencode( get_the_title() );
 				<li><a href="<?php echo esc_url( 'https://getpocket.com/edit?url=' . $url_encode . '&title=' . $title_encode ); ?>"target="_blank" rel="nofollow" class="logo-instagram"><img class="logo-hatena" src="<?php echo get_template_directory_uri(); ?>/images/hatena.png"></a></li>
 			</ul>
 		</div><!-- #comments -->	
-		<?php comments_template(); ?>
+		<!-- <?php comments_template(); ?> -->
+		</div>
+			<?php $args = array(
+				'title_reply' => null,
+				// 'comment_notes_after'  => '<p>コメント記入欄の下に表示するメッセージ</p>',
+				'comment_field'        => '<p class="comment-form-comment"  width="100%" ><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea type="textarea" id="comment" name="comment" width="100%" rows="4" aria-required="true"></textarea></p>', // テキストエリア
+				'label_submit' => 'COMMENT'
+			);
+			comment_form( $args ); ?>
+				<?php if( have_comments() ): //コメントがあったらコメントリストを表示する ?>
+			<ol class="commets-list">
+				<?php $args = array(
+					'walker'            => null,
+					'max_depth'         => 1,
+					'style'             => 'div',
+					'callback'          => null,
+					'end-callback'      => null,
+					'type'              => 'all',
+					'page'              => '',
+					'per_page'          => '',
+					'avatar_size'       => null,
+					'reverse_top_level' => null,
+					'reverse_children'  => ''
+					);
+				?>
+				<?php wp_list_comments( $args ); ?>
+			</ol>
+			<?php endif; ?>
 		</div><!-- /.post -->
 	<?php endwhile;  else:?>
+
 <?php endif;?>
+	
+	
 <?php get_footer();?>
